@@ -3,11 +3,11 @@ package com.globalobjectdemo.app.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.globalobjectdemo.app.MainActivity
+import com.globalobjectdemo.app.views.activity.MainActivity
 import com.globalobjectdemo.app.databinding.RowUserListBinding
 import com.globalobjectdemo.app.models.UserModel
 
-class UserListAdapter (val act: MainActivity, private val itemsData: ArrayList<UserModel>) :
+class UserListAdapter (val act: MainActivity, private val itemsData: ArrayList<UserModel>,  private val listener: OnItemClickListener?) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -20,9 +20,11 @@ class UserListAdapter (val act: MainActivity, private val itemsData: ArrayList<U
 
         var binding: RowUserListBinding = b
 
-        fun bind(position: Int) {
+        fun bind(listener: OnItemClickListener, position: Int) {
 
 //            act.setTextFonts(binding.root)
+
+            binding.linearParent.setOnClickListener { listener.onItemClick(position, itemsData) }
 
         }
 
@@ -31,7 +33,7 @@ class UserListAdapter (val act: MainActivity, private val itemsData: ArrayList<U
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
-        (holder as MyViewHolder).bind(holder.adapterPosition)
+        (holder as MyViewHolder).bind(listener!!, holder.adapterPosition)
 
         itemsData[holder.adapterPosition].let {
 
@@ -73,5 +75,13 @@ class UserListAdapter (val act: MainActivity, private val itemsData: ArrayList<U
         notifyDataSetChanged()
 
     }
+
+
+    interface OnItemClickListener {
+
+        fun onItemClick(position: Int, list: ArrayList<UserModel>)
+
+    }
+
 
 }

@@ -9,6 +9,11 @@
     <string name="CallApi">Call Api</string>
     <string name="Age">Age:</string>
     <string name="Country">Country:</string>
+    <string name="Save">Save</string>
+    <string name="Back">Back</string>
+    <string name="Message">Click on a row to edit!</string>
+    <string name="SecondFragment">Second Fragment</string>
+    <string name="FirstFragment">Home/First Fragment</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>

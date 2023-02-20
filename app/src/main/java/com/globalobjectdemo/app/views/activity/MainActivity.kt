@@ -1,21 +1,18 @@
-package com.globalobjectdemo.app
+package com.globalobjectdemo.app.views.activity
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
+import com.globalobjectdemo.app.views.fragment.FirstFragment
+import com.globalobjectdemo.app.R
 import com.globalobjectdemo.app.classes.Navigator
 import com.globalobjectdemo.app.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityMainBinding
+    lateinit var binding: ActivityMainBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,4 +26,9 @@ class MainActivity : AppCompatActivity() {
         Navigator.loadFragment(this, FirstFragment(this), R.id.content_home, true, "home")
 
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+    }
+
 }

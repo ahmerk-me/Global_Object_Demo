@@ -7,7 +7,7 @@
         android:id="@+id/my_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/button_first"
+        android:layout_above="@+id/tv_instruction"
         android:layout_alignParentTop="true" />
 
     <Button
@@ -15,18 +15,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="40dp"
-        android:text="@string/CallApi" />
+        android:text="@string/second_fragment_label"
+        android:visibility="gone" />
 
-    <Button
-        android:id="@+id/button_third"
+    <TextView
+        android:id="@+id/tv_instruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="40dp"
-        android:text="@string/CallApi" />
+        android:text="@string/Message"
+        android:textColor="@color/text_color"
+        android:textSize="20sp" />
 
 </RelativeLayout>
